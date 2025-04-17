@@ -313,7 +313,7 @@ a:hover, a:active, a:focus {
 #home .home-thumb {
     position: relative;
     z-index: 2;
-    margin-right: 10%; /* increase to push right */
+    margin-right: 5%; /* increase to push right */
 
 }
 
@@ -1008,15 +1008,440 @@ footer p {
 
 @media (max-width: 768px) {
   #home {
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center top;
-    height: 80vh;
+    /* always fill the entire viewport height */
+    height: 100vh !important;
+    min-height: 100vh !important;
+
+    /* explicit cover‑crop, no tiling, scroll normally on mobile */
+    background-image: url('/images/home-bg.jpg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+
+    /* center your text block */
     text-align: center;
   }
 
+  /* pad & center the text so it never hugs the edge */
   #home .home-thumb {
-    margin-right: 0 !important;
+    margin: 0 auto !important;
+    padding: 2rem 1rem;
+  }
+
+  /* scale down headings/buttons for mobile legibility */
+  #home h1 {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
+  #home .home-thumb p {
+    font-size: 1rem !important;
+  }
+  .section-btn {
+    padding: 0.5rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+/*---------------------------------------------------
+  Mobile: center hero text & button on small screens  
+---------------------------------------------------*/
+
+@media (max-width: 768px) {
+  /* cancel the desktop-only 10% right‑push */
+  #home .container,
+  #home .home-thumb {
+    margin: 0 auto !important;
+    padding: 0 1rem;             /* optional side padding */
+    text-align: center !important;
+    max-width: 90%;   
+    scale: 1.2;           /* constrain so it never spans full width */
+  }
+
+  /* tweak heading & button so they feel balanced on phones */
+  #home h1 {
+    font-size: 1.8rem !important;
+  }
+  #home .home-thumb p {
+    font-size: 1rem !important;
+  }
+  #home .section-btn {
+    padding: 0.6rem 1.8rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* better visibility */
+
+@media (max-width: 768px) {
+  /* tighten vertical rhythm */
+  #home .home-thumb h1 {
+    margin-bottom: 0.25rem;       /* shrink space below headline */
+    /* add a text‑shadow for contrast */
+    text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+  }
+  #home .home-thumb p {
+    margin-bottom: 2rem;        /* shrink space below subtitle */
+    text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+  }
+  #home .section-btn {
+    margin-top: 0;                /* pull button up closer */
+    padding: 0.5rem 1.5rem;       /* keep it comfortably tappable */
+  }
+
+  /* Optionally ramp up the overlay a little more behind text */
+  #home::before {
+    background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.9) 40%,
+      rgba(0, 0, 0, 0) 60%
+    ) !important;
+  }
+}
+
+/* Mobile-specific adjustments to show proper design elements with padding */
+@media (max-width: 768px) {
+  /* Container adjustments for mobile */
+  #home .container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 15px; /* Add horizontal padding */
+  }
+  
+  /* Home thumb adjustments for mobile */
+  #home .home-thumb {
+    margin-right: auto !important;
+    margin-left: auto !important;
+    width: 90%;
+    padding: 0 10px;
+    text-align: center;
+  }
+  
+  /* Ensure the content doesn't touch the edges */
+  /* Important part here */
+  .about-text, .info-list, .timeline, .service-thumb {
+    padding: 15px;
+    margin: 0 auto;
+  }
+  
+  /* Improve contrast for better text readability */
+  #home::before {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.8) 35%, rgba(0, 0, 0, 0.4) 70%);
+  }
+  
+  /* Scale the text appropriately */
+  #home h1 {
+    font-size: 28px !important;
+    line-height: 1.3;
+  }
+  
+  #home .home-thumb p {
+    font-size: 10px !important;
+    margin-bottom: 20px;
+  }
+  
+  /* Make sure the button is properly sized and positioned */
+  .section-btn {
+    padding: 12px 24px !important;
+    margin-top: 15px;
+  }
+}
+
+/* Mobile improvements for all sections and centered download button */
+@media (max-width: 768px) {
+  /* General section improvements */
+  #about, #education, #experience, #projects, #contact {
+    padding: 60px 15px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  /* Make all content sections fit properly */
+  .timeline-content, .education-item, .experience-item, .project-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Center the download button */
+  .download-resume, #download-resume, a[href*="resume"] {
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 12px 20px;
+  }
+  
+  /* Button styling */
+  .btn-custom, .section-btn, .download-btn {
+    display: inline-block;
+    width: auto;
+    margin: 20px auto;
+    text-align: center;
+    padding: 12px 24px;
+  }
+  
+  /* Center-align download button container */
+  .download-container {
+    text-align: center;
+    margin: 30px auto;
+  }
+  
+  /* Project and experience card improvements */
+  .service-thumb, .project-card, .experience-card {
+    margin-bottom: 25px;
+    width: 100%;
+  }
+  
+  /* Ensure bottom spacing */
+  .section:last-of-type {
+    padding-bottom: 60px;
+  }
+}
+
+
+/* Direct fixes for mobile experience section */
+@media (max-width: 768px) {
+  /* Fix overall container */
+  .timeline-block, #experience, section:nth-of-type(3) {
+    padding: 20px 0;
+    width: 100%;
+    overflow: visible;
+  }
+  
+  /* Fix timeline layout */
+  .timeline {
+    margin: 0;
+    padding: 20px 0;
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Fix timeline items */
+  .timeline > li {
+    padding-left: 35px;
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Adjust timeline positioning */
+  .timeline:before {
+    left: 10px;
+  }
+  
+  .timeline > li > .timeline-content:before {
+    left: -35px;
+    width: 35px;
+  }
+  
+  .timeline > li > .timeline-content:after {
+    left: -43px;
+  }
+  
+  /* Box styles */
+  .timeline > li > .timeline-content {
+    padding: 15px;
+    border: solid 1px #B6B6B6;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Fix spacing at the bottom of the section */
+  section:nth-of-type(3) {
+    margin-bottom: 20px;
+  }
+  
+  /* Set proper padding for the whole page on mobile */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+/* Add padding specifically for the Relevant Experience section */
+@media (max-width: 768px) {
+  /* Target the work section specifically */
+  #work {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Add padding to the timeline elements */
+  #work .timeline {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Fix the timeline connector element position */
+  #work .timeline:before {
+    left: 25px !important;
+  }
+  
+  /* Ensure the timeline content has proper padding */
+  #work .timeline-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Adjust heading padding to match */
+  #work .section-title {
+    padding-left: 10px;
+  }
+  
+  /* Container for the entire section */
+  #work .container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 9px;
+  }
+}
+
+/* Center and style the download resume button */
+@media (max-width: 768px) {
+  /* Target the download resume button specifically */
+  a[href*="resume"], .btn-custom.btn-color {
+    display: block;
+    width: 200px; /* Fixed width for better appearance */
+    margin: 25px auto; /* Top/bottom margin and auto left/right for centering */
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  /* Container alignment */
+  .about-btns {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+  
+  /* Make sure parent container doesn't interfere with centering */
+  .col-md-8 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ————————————————————————————————
+   Global text scale‑up for non-mobile only
+   ———————————————————————————————— */
+   @media (min-width: 769px) {
+    html {
+      /* 1rem now equals 18px instead of 16px */
+      font-size: 18px;
+    }
+  
+    /* Headings */
+    h1 { font-size: 3rem; }       /* ~54px */
+    h2 { font-size: 2.25rem; }    /* ~40px */
+    h3 { font-size: 1.5rem; }     /* ~27px */
+    h4 { font-size: 1.25rem; }    /* ~22px */
+  
+    /* Body copy, lists, timelines, etc. */
+    p,
+    li,
+    a,
+    .info-list > li > span,
+    .about-text p,
+    .timeline > li,
+    .timeline-content em,
+    .timeline-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  
+    /* Buttons and small UI bits */
+    .section-btn,
+    .btn-custom {
+      font-size: 1rem;
+    }
+  
+    /* Form inputs */
+    #contact .form-control {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+  }
+  
+/* Minime phone text size */
+@media (max-width: 768px) {
+  html {
+    font-size: 14.5px; /* Default is ~16px, this brings it down slightly */
+  }
+
+  /* Optional: override specific elements if needed */
+  h1 { font-size: 1.75rem; }   /* ~25px */
+  h2 { font-size: 1.5rem; }    /* ~21.75px */
+  h3 { font-size: 1.25rem; }   /* ~18px */
+  h4 { font-size: 1.1rem; }
+
+  p,
+  li,
+  a,
+  .info-list > li > span,
+  .about-text p,
+  .timeline > li,
+  .timeline-content em,
+  .timeline-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .section-btn,
+  .btn-custom {
+    font-size: 0.9rem;
+  }
+
+  #contact .form-control {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+/* ————————————————————————————————
+Hero background: no‑repeat, fixed, cover, center
+———————————————————————————————— */
+#home {
+/* shorthand: image | position / size | repeat | attachment */
+background: url('/images/home-bg.jpg') center center / cover no-repeat fixed;
+}
+
+/* Override any parallax‑section rule that forces scroll */
+.parallax-section {
+  background-attachment: initial !important;
+}
+  
+/* Tablet‑specific tweak (iPad landscape/portrait) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #home {
+    /* ensure fixed sticks on iPad */
+    background-attachment: fixed !important;
+    /* if you need a fallback for older Safari, switch to a fixed pseudo‑element */
+  }
+}
+
+/* Minimize the discover more button on mobile */
+@media only screen and (max-width: 480px) and (pointer: coarse) {
+  #home .section-btn {
+    font-size: 0.65rem !important;
+    padding: 6px 14px !important;
+    border-radius: 25px !important;
+    max-width: 180px;
+    width: auto;
+    display: inline-block;
+    margin: 0 auto;
   }
 }
