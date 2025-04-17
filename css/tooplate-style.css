@@ -1409,30 +1409,6 @@ footer p {
   }
 }
 
-
-
-/* ————————————————————————————————
-Hero background: no‑repeat, fixed, cover, center
-———————————————————————————————— */
-#home {
-/* shorthand: image | position / size | repeat | attachment */
-background: url('/images/home-bg.jpg') center center / cover no-repeat fixed;
-}
-
-/* Override any parallax‑section rule that forces scroll */
-.parallax-section {
-  background-attachment: initial !important;
-}
-  
-/* Tablet‑specific tweak (iPad landscape/portrait) */
-@media (min-width: 768px) and (max-width: 1024px) {
-  #home {
-    /* ensure fixed sticks on iPad */
-    background-attachment: fixed !important;
-    /* if you need a fallback for older Safari, switch to a fixed pseudo‑element */
-  }
-}
-
 /* Minimize the discover more button on mobile */
 @media only screen and (max-width: 480px) and (pointer: coarse) {
   #home .section-btn {
