@@ -61,6 +61,7 @@ html, body {
   display: flex;
 }
 
+/* Helps unify sizes (closely enough) across the project section */
 .service-thumb {
   display: flex;
   flex-direction: column;
@@ -360,6 +361,8 @@ a:hover, a:active, a:focus {
 
 .service-thumb:hover {
   background: #ffffff;
+  /* Change the background to white for the project sectoin */
+  background-color: white !important;
   top: -5px;
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -375,7 +378,7 @@ a:hover, a:active, a:focus {
 .service-thumb:hover .fa,
 .service-thumb:hover h4,
 .service-thumb:hover p {
-  color: #ffffff; /* Keep text white on hover */
+  color: black; /* Keep text white on hover */
 }
 
 .service-thumb h4 {
@@ -384,9 +387,6 @@ a:hover, a:active, a:focus {
 
 .skill-container {
   margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
 }
 
 .skill {
@@ -397,22 +397,14 @@ a:hover, a:active, a:focus {
   border-color: #d9d9d9;
   background: #2b2b2b;
   color: #d9d9d9;
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 4px 12px;
-  font-size: 12px;
-  color: white;
-  transition: all 0.3s ease;
 }
+
 
 .skill:hover {
   border-color: #2b2b2b;
   background: #d9d9d9;
   color: #2b2b2b;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
 }
 
 .service-thumb:hover .skill {
@@ -427,11 +419,22 @@ a:hover, a:active, a:focus {
   color: #d9d9d9;
 }
 
+/* Make sure the skills section inverts colors on hover */
+.service-thumb:hover .skill h6 { 
+  color: black;
+}
+
 .skill h6 {
   margin: 0;
   padding: 0;
-  color: white;
   font-size: 12px;
+  /* transition for smoothness */
+  transition: color 0.2s ease;
+}
+
+.skill:hover h6 { 
+  color: white !important;
+  transition: color 0s; /* Add instant load */
 }
 
 .service-thumb .fa {
