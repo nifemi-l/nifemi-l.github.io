@@ -11,6 +11,7 @@ http://www.tooplate.com/view/2087-kalay
 
 body {
   font-family: 'Lora', serif; /* Default for paragraph text */
+  cursor: default; /* Default cursor behavior, unless otherwise specified */
 }
 
 .info-list > li > strong {
@@ -110,7 +111,7 @@ h3 {
   font-size: 16px;
   line-height: 32px;
   letter-spacing: 6px;
-  text-transform: uppercase;
+  text-transform: uppercase; 
 }
 
 h4 {
@@ -349,12 +350,12 @@ a:hover, a:active, a:focus {
   background: #2b2b2b;
   border-radius: 5px;
   padding: 42px 22px;
-  cursor: crosshair;
   position: relative;
   top: 0;
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s;
   transition: all 0.3s ease;
+  cursor: pointer
 }
 
 .service-thumb:hover {
@@ -364,9 +365,17 @@ a:hover, a:active, a:focus {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Remove the color change on hover for text and icons */
+.service-thumb h4,
+.service-thumb p,
+.service-thumb .fa {
+  color: #ffffff;
+}
+
 .service-thumb:hover .fa,
-.service-thumb:hover h4 {
-  color: #2b2b2b;
+.service-thumb:hover h4,
+.service-thumb:hover p {
+  color: #ffffff; /* Keep text white on hover */
 }
 
 .service-thumb h4 {
@@ -401,7 +410,7 @@ a:hover, a:active, a:focus {
   border-color: #2b2b2b;
   background: #d9d9d9;
   color: #2b2b2b;
-  cursor: crosshair;
+  cursor: pointer;
   background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
@@ -683,7 +692,6 @@ a.btn-custom{
   position: absolute;
   background: #7682cc;
   border-radius: 5px;
-  cursor: crosshair;
   opacity: 0;
   width: 100%;
   height: 100%;
