@@ -296,7 +296,6 @@ a:hover, a:active, a:focus {
     position: relative;
     text-align: right;
     transition: background-image 0.4s ease-in-out;
-
 }
 
 #home::before {
@@ -1004,5 +1003,20 @@ footer p {
 
   .home-thumb p {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  #home {
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    height: 80vh;
+    text-align: center;
+  }
+
+  #home .home-thumb {
+    margin-right: 0 !important;
   }
 }
