@@ -237,17 +237,16 @@ a:hover, a:active, a:focus {
   width: 100%;
   height: 100%;
   z-index: 99999;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
+  display: flex; /* Create a flex container */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
   background: none repeat scroll 0 0 #ffffff;
 }
 
 .spinner {
-  border: 1px solid transparent;
-  border-radius: 5px;
   position: relative;
+  width: 65px;  /* Match the spinner's width */
+  height: 65px; /* Match the spinner's height */
 }
 
 .spinner:before {
@@ -258,23 +257,23 @@ a:hover, a:active, a:focus {
   left: 50%;
   width: 65px;
   height: 65px;
-  margin-top: -10px;
-  margin-left: -10px;
+  margin-top: -32.5px;  /* Half of height */
+  margin-left: -32.5px; /* Half of width */
   border-radius: 50%;
   border: 2px solid #454545;
   border-top-color: #ffffff;
   animation: spinner .9s linear infinite;
 }
 
-@-webkit-@keyframes spinner {
+/* Older browser */
+@-webkit-keyframes spinner {
   to {transform: rotate(360deg);}
 }
 
+/* Modern browser */
 @keyframes spinner {
   to {transform: rotate(360deg);}
 }
-
-
 
 /*---------------------------------------
   Home section              
