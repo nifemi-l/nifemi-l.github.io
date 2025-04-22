@@ -14,6 +14,11 @@ body {
   cursor: default; /* Default cursor behavior, unless otherwise specified */
 }
 
+html {
+  /* drop from the default 16px → 14px */
+  font-size: 16.8px !important;
+}
+
 .info-list > li > strong {
   font-family: 'Roboto Mono', monospace;
   font-weight: 700;
@@ -621,9 +626,9 @@ a.btn-custom{
 	padding: 20px;
 	margin-bottom: 30px;
 	background: rgba(255, 255, 255, 0.05);
-	border-radius: 8px;
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 3px;
 }
+
 .timeline > li > .timeline-content:before{
 	content: ' ';
 	position:absolute;
@@ -662,11 +667,9 @@ a.btn-custom{
 	color:rgba(0,0,0,.6);
 }
 .timeline-content:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08); /* light hover tint */
     transition: all 0.3s ease;
 }
-
-
 
 /*---------------------------------------
   Work section              
